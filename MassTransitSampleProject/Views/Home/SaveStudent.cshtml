@@ -1,0 +1,60 @@
+﻿@model MassTransitSampleProject.Models.Student
+
+@{
+    ViewData["Title"] = "SaveStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Öğrenci Kaydet</h1>
+
+@if (ViewData["result"] != null && ViewData["result"].ToString().Length > 0)
+{
+    <h5>@ViewData["result"].ToString()</h5>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveStudent" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonDetails.Name" class="control-label">Adı</label>
+                <input asp-for="PersonDetails.Name" class="form-control" />
+                <span asp-validation-for="PersonDetails.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonDetails.LastName" class="control-label">Soyadı</label>
+                <input asp-for="PersonDetails.LastName" class="form-control" />
+                <span asp-validation-for="PersonDetails.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonDetails.IdentityNumber" class="control-label">Kimlik Numarası</label>
+                <input asp-for="PersonDetails.IdentityNumber" class="form-control" />
+                <span asp-validation-for="PersonDetails.IdentityNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonDetails.Email" class="control-label">E-Posta</label>
+                <input asp-for="PersonDetails.Email" class="form-control" />
+                <span asp-validation-for="PersonDetails.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassRoom" class="control-label">Sınıfı</label>
+                <input asp-for="ClassRoom" class="form-control" />
+                <span asp-validation-for="ClassRoom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SchoolNumber" class="control-label">Okul Numarası</label>
+                <input asp-for="SchoolNumber" class="form-control" />
+                <span asp-validation-for="SchoolNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
